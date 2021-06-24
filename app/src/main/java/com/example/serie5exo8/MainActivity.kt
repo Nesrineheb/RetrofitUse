@@ -4,15 +4,12 @@ package com.example.serie5exo8
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-
-import retrofit2.converter.moshi.MoshiConverterFactory
 class MainActivity : AppCompatActivity() {
     /*  override fun onCreate(savedInstanceState: Bundle?) {
          super.onCreate(savedInstanceState)
@@ -22,10 +19,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val url = "https://jsonplaceholder.typicode.com/posts/"
+        val baseUrl = url.split(".com/").toTypedArray()[0] + ".com/"
+        val queryUrl = url.split(".com").toTypedArray()[1]
 
         val  textViewResult = findViewById<TextView>(R.id.text_view_result)
         val retrofit = Retrofit.Builder()
-                .baseUrl("https://jsonplaceholder.typicode.com/todos")
+                .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         val jsonPlaceHolderApi = retrofit.create(
