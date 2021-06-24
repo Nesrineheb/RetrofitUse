@@ -1,11 +1,12 @@
 package com.example.serie5exo8
 
-import com.google.gson.annotations.SerializedName
+import com.google.gson.annotations.SerializedName;
 
+class Post {
+    val userId = 0
+    val id = 0
+    val title: String? = null
 
-
-
-class Post (val id:Int,val userId:Int,val title:String? = null) {
-
-
+    @SerializedName("body")
+    val text: String? = null
 }
